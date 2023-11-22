@@ -1254,11 +1254,11 @@ def create_ui():
         (train_interface, "Train", "train"),
     ]
 
-    interfaces += script_callbacks.ui_tabs_callback()
-    interfaces += [(settings.interface, "Settings", "settings")]
+    # interfaces += script_callbacks.ui_tabs_callback()
+    # interfaces += [(settings.interface, "Settings", "settings")]
 
-    extensions_interface = ui_extensions.create_ui()
-    interfaces += [(extensions_interface, "Extensions", "extensions")]
+    # extensions_interface = ui_extensions.create_ui()
+    # interfaces += [(extensions_interface, "Extensions", "extensions")]
 
     shared.tab_names = []
     for _interface, label, _ifid in interfaces:
@@ -1273,14 +1273,14 @@ def create_ui():
             tab_order = {k: i for i, k in enumerate(opts.ui_tab_order)}
             sorted_interfaces = sorted(interfaces, key=lambda x: tab_order.get(x[1], 9999))
 
-            for interface, label, ifid in sorted_interfaces:
-                if label in shared.opts.hidden_tabs:
-                    continue
-                with gr.TabItem(label, id=ifid, elem_id=f"tab_{ifid}"):
-                    interface.render()
+            # for interface, label, ifid in sorted_interfaces:
+            #     if label in shared.opts.hidden_tabs:
+            #         continue
+            #     with gr.TabItem(label, id=ifid, elem_id=f"tab_{ifid}"):
+            #         interface.render()
 
-                if ifid not in ["extensions", "settings"]:
-                    loadsave.add_block(interface, ifid)
+            #     if ifid not in ["extensions", "settings"]:
+            #         loadsave.add_block(interface, ifid)
 
             loadsave.add_component(f"webui/Tabs@{tabs.elem_id}", tabs)
 
