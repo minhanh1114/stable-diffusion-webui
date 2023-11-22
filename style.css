@@ -9,6 +9,10 @@
     --section-header-text-size: 12pt;
     --block-background-fill: transparent;
 }
+.tabs > :first-child > button:nth-child(2),button:nth-child(3),button:nth-child(4),button:nth-child(5),button:nth-child(6)
+{
+    display: none;
+}
 
 .block.padded:not(.gradio-accordion) {
     padding: 0 !important;
@@ -364,6 +368,7 @@ div#extras_scale_to_tab div.form{
 #quicksettings {
     width: fit-content;
     align-items: end;
+    display: none;
 }
 
 #quicksettings > div, #quicksettings > fieldset{
